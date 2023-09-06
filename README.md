@@ -10,7 +10,7 @@ We use the large model TransNetV2 for segmentation. Code from https://github.com
 ## Feature Extraction
 We use the large-scale model CLIP to extract semantic features for each frame in each shot. Code from https://www.modelscope.cn/models/damo/multi-modal_clip-vit-large-patch14_336_zh/summary
 ## Clustering
-We designed an adaptive clustering method to automatically determine the best clustering results. The code can be found in our repository.[Kmeans_improvment.py](Kmeans_improvment.py)
+We designed an adaptive clustering method to automatically determine the best clustering results. The code can be found in our repository.[Kmeans_improvment.py](src/extraction/Kmeans_improvment.py)
 ## Redundancy
 After obtaining the clustering results, we perform shot-by-shot selection and redundancy elimination of candidate keyframes. In terms of de-redundancy, we mainly divide it into two aspects, on the one hand, it is for solid colour frames or low information frames, and on the other hand, it is for frames with a high degree of similarity. The code can be found in our repository.
 
