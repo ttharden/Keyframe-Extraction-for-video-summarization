@@ -26,7 +26,16 @@ The dataset we use is a benchmark dataset we built ourselves called TvSum20, whi
 ## Scripts
 We use a script to evaluate the extracted keyframes. The code can be found in our repository. [Evaluation.py](src/extraction/Evaluation.py)  
 
-We take the key frame sequences extracted by the method(test_index) and the sequences of the benchmark dataset(keyframe_center) as inputs, and output the corresponding performance metrics values, which include F-value, fidelity, and compression ratio.
+We take the key frame sequences extracted by the method(test_index) and the sequences of the benchmark dataset(keyframe_center) as inputs and output the corresponding performance metrics values, which include F-value, fidelity, and compression ratio.
 
 # Case
 This is a case of keyframe extraction by our proposed method. Below are examples of keyframe sequences extracted by different methods：![case](images/githubcase.png)
+
+# Reference
+Tomas Soucek and Jakub Lokoc, “Transnet V2: an effective deep network architecture for fast shot transition detection,” arXiv:2008.04838, pp. 1–4, 2020.
+
+Yang, An and Pan, Junshu and Lin, Junyang and Men, Rui and Zhang, Yichang and Zhou, Jingren and Zhou, Chang, "Chinese CLIP: Contrastive Vision-Language Pretraining in Chinese" arXiv preprint arXiv:2211.01335,2022
+
+
+
+
