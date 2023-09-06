@@ -16,13 +16,15 @@ We designed an adaptive clustering method to automatically determine the best cl
 
 We take the video feature file（features_path） and the lens segmentation result （scenes_path）file as inputs and after running them we get best_clusters, best_centers, best_k,centre_indices 
 ## Redundancy
-After obtaining the clustering results, we perform shot-by-shot selection and redundancy elimination of candidate keyframes. In terms of de-redundancy, we mainly divide it into two aspects, on the one hand, it is for solid colour frames or low information frames, and on the other hand, it is for frames with a high degree of similarity. The code can be found in our repository. [Redundancy.py](src/extraction/Redundancy.py)
+After obtaining the clustering results, we perform shot-by-shot selection and redundancy elimination of candidate keyframes. In terms of de-redundancy, we mainly divide it into two aspects, on the one hand, it is for solid colour frames or low information frames, and on the other hand, it is for frames with a high degree of similarity. The code can be found in our repository. [Redundancy.py](src/extraction/Redundancy.py)  After running it to get the final keyframe sequence
 
 # Evaluation
 ## Benchmark dataset
 The dataset we use is a benchmark dataset we built ourselves called TvSum20, which is used to evaluate the performance of the keyframe extraction method. Dataset from https://github.com/ttharden/Keyframe-extraction
 ## Scripts
-We use a script to evaluate the extracted keyframes. The code can be found in our repository. [Evaluation.py](src/extraction/Evaluation.py)
+We use a script to evaluate the extracted keyframes. The code can be found in our repository. [Evaluation.py](src/extraction/Evaluation.py)  
+
+We take the key frame sequences extracted by the method(test_index) and the sequences of the benchmark dataset(keyframe_center) as inputs, and output the corresponding performance metrics values, which include F-value, fidelity, and compression ratio.
 
 # Case
 This is a case of keyframe extraction by our proposed method. Below are examples of keyframe sequences extracted by different methods：![case](images/githubcase.png)
