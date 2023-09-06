@@ -7,6 +7,8 @@ we present a large model based sequential keyframe extraction, dubbed LMSKE, to 
 # Method
 ## Shot segmentations
 We use the large model TransNetV2 for segmentation. Code from https://github.com/soCzech/TransNetV2. By this step, we will get the shot segmentation result of the video and the result will be saved locally in txt form. The front indicates the start frame of the shot and the back indicates the end frame of the shot.
+
+![case](images/scenes.png) 
 ## Feature Extraction
 We use the large-scale model CLIP to extract semantic features for each frame in each shot. Code from https://www.modelscope.cn/models/damo/multi-modal_clip-vit-large-patch14_336_zh/summary
 ## Clustering
