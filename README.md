@@ -21,4 +21,4 @@ The dataset we use is a benchmark dataset we built ourselves called TvSum20, whi
 We use a script to evaluate the extracted keyframes.The code can be found in our repository
 
 # Case
-This is a case of keyframe extraction by our proposed method.
+This is a case of keyframe extraction by our proposed method. ![case](/images/githubcase.jpg)
