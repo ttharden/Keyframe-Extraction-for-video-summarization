@@ -122,13 +122,13 @@ def evaluation(keyframe_center, test_index, video_path):
     print("match_index:" + str(match_index))
     print("match:" + str(len(matchs)) + ":" + str(matchs))
 
-    # 计算f值
+    # Calculate the f-value
     print(len(test_index))
     print(len(features))
     procession = float(x_num / len(test_index))
     recall = float(x_num / len(keyframe_center))
     f_value = (2 * procession * recall) / (procession + recall)
     print("p value：" + str(procession), "r value：" + str(recall), "f value：" + str(f_value))
-    # 计算保真度和压缩比
+    # Calculate fidelity and ratio
     fidelity, ratio = fidelity_and_ratio(features, keyframe_center, test_index)
     print("fidelity value：" + str(fidelity), "ratio value：" + str(ratio))
