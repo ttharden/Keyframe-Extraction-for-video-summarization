@@ -10,7 +10,9 @@ We use the large model TransNetV2 for segmentation. Code from https://github.com
 
 ![case](images/scenes.png) 
 ## Feature Extraction
-We use the large-scale model CLIP to extract semantic features for each frame in each shot. Code from https://www.modelscope.cn/models/damo/multi-modal_clip-vit-large-patch14_336_zh/summary. The video is subjected to feature extraction through the CLIP large model to obtain a 768-dimensional feature vector for each frame of the video. We save the features of the whole video locally in the form of .pkl for subsequent use.
+We use the large-scale model CLIP to extract semantic features for each frame in each shot. Code from https://www.modelscope.cn/models/damo/multi-modal_clip-vit-large-patch14_336_zh/summary. 
+
+The video is subjected to feature extraction through the CLIP large model to obtain a 768-dimensional feature vector for each frame of the video. We save the features of the whole video locally in the form of .pkl for subsequent use.
 ## Clustering
 We designed an adaptive clustering method to automatically determine the best clustering results. The code can be found in our repository. [Keyframe_extraction.py](src/extraction/Keyframe_extraction.py) 
 
