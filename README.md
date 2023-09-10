@@ -29,7 +29,10 @@ We use a script to evaluate the extracted keyframes. The code can be found in ou
 We take the key frame sequences extracted by the method(test_index) and the sequences of the benchmark dataset(keyframe_center) as inputs and output the corresponding performance metrics values, which include F-value, fidelity, and compression ratio.
 
 # Case
-This is a case of keyframe extraction by our proposed method. Below are examples of keyframe sequences extracted by different methods：![case](images/githubcase.png)
+This is a case of keyframe extraction by our proposed method. Below are examples of keyframe sequences extracted by different methods:
+<div align=center>
+<img src="https://github.com/ttharden/Keyframe-Extraction-for-video-summarization/blob/main/images/CASE3.png" > 
+</div>
 
 # Reference
 Tomas Soucek and Jakub Lokoc, “Transnet V2: an effective deep network architecture for fast shot transition detection,” arXiv:2008.04838, pp. 1–4, 2020.
