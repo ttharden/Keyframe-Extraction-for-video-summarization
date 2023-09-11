@@ -1,10 +1,9 @@
 import pickle
 import cv2
 import numpy as np
-
-from Kmeans_improvment import kmeans_silhouette
-from save_keyframe import save_frames
-from Redundancy import redundancy
+from extraction.Kmeans_improvment import kmeans_silhouette
+from Scripts.save_keyframe import save_frames
+from extraction.Redundancy import redundancy
 
 
 def scen_keyframe_extraction(scenes_path, features_path, video_path, save_path, folder_path):
@@ -23,15 +22,15 @@ def scen_keyframe_extraction(scenes_path, features_path, video_path, save_path, 
         features = pickle.load(file)
 
     features = np.asarray(features)
-    # print(len(features))
-
+    print(features.shape)
     # Clustering at each shot to obtain keyframe sequence numbers
     keyframe_index = []
     for i in range(0, len(number_list) - 1, 2):
         start = number_list[i]
         end = number_list[i + 1]
-        # print(start, end)
+        print(start, end)
         sub_features = features[start:end]
+        print(sub_features.shape)
         best_labels, best_centers, k, index = kmeans_silhouette(sub_features)
         # print(index)
         final_index = [x + start for x in index]

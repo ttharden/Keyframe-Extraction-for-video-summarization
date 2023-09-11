@@ -1,5 +1,7 @@
 import numpy as np
 
+from tqdm import tqdm  # Import the tqdm function or class
+
 
 def kmeans_init(data):
     print("In the process of initialising the center")
@@ -13,7 +15,7 @@ def kmeans_init(data):
     while len(centers) < sqrt_n:
 
         sse_min = float('inf')
-        for i in range(n):
+        for i in tqdm(range(n)):
             center = centers.copy()
             if np.any(data[i] != centers):
                 center.append(data[i])

@@ -1,12 +1,13 @@
 import numpy as np
 from sklearn.metrics import silhouette_score
 from scipy.spatial.distance import cdist
-from init_center import kmeans_init
+from extraction.init_center import kmeans_init
 
 
 def kmeans_silhouette(features):
     # calculate sqrt(n)
     sqrt_n = int(np.sqrt(len(features)))
+    print(sqrt_n)
     # Initialise k and clustering results
     k = sqrt_n
     best_k = k
@@ -15,7 +16,9 @@ def kmeans_silhouette(features):
 
     # Results of the selection of the initial center
     clusters, centers = kmeans_init(features)
-
+    best_centers = None  # 初始化best_centers
+    center_indices = None  # 初始化center_indices
+    print(centers.shape)
     # Iterative Procedure
     while k > 2:
         # Calculate the Euclidean distance between cluster centers
@@ -72,11 +75,14 @@ def kmeans_silhouette(features):
                 center_indices.append(center_index)
 
     # return result
-    # print("best_k:" + str(best_k))
-    # print("best_clusters:" + str(best_clusters))
-    # print("best_centers:" + str(best_centers) + str(len(best_centers)))
-    # print("best_avg_sc:" + str(best_avg_silhouette))
-    # print("best_center_index:" + str(center_indices))
+    print("best_k:" + str(best_k))
+    print("best_clusters:" + str(best_clusters))
+    if best_centers is not None:
+        print("best_centers:(Length: " + str(len(best_centers)) + ")")
+    else:
+        print("best_centers is None, cannot determine its length.")
+    print("best_avg_sc:" + str(best_avg_silhouette))
+    print("best_center_index:" + str(center_indices))
 
     return best_clusters, best_centers, best_k, center_indices
 
