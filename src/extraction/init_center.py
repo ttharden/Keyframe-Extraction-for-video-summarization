@@ -11,6 +11,7 @@ def kmeans_init(features_data):
     n = len(data)
     sqrt_n = int(n ** 0.5)
     centers = []
+    label = torch.zeros(n, dtype=torch.int64, device='cuda')
 
     while len(centers) < sqrt_n:
         sse_min = float('inf')
