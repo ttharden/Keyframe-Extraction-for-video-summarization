@@ -6,7 +6,7 @@ import numpy as np
 def kmeans_init(features_data):
     print("In the process of initializing the center")
 
-    data = torch.tensor(features_data, device='cuda')
+    data = torch.tensor(features_data, device='cuda', dtype=torch.float32)
 
     n = len(data)
     sqrt_n = int(n ** 0.5)
