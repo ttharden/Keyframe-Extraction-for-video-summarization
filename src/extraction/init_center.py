@@ -35,14 +35,17 @@ def kmeans_init(features_data):
                     join_center = data[i]
                     label = cluster_labels.clone()
 
-                b_unit.set_description(f"kmeans_init {sqrt_n}: {len(centers)}, {len(data)} - sse_min: {sse_min}, "
-                                       f" sse: {sse} - center[0].shape: {center[0].shape}, device: {center[0].device}")
-                b_unit.refresh()
+                if i % 10000 == 0:
+                    b_unit.set_description(f"kmeans_init {sqrt_n}: {len(centers)}, {len(data)} - sse_min: {sse_min}, "
+                                           f" sse: {sse} - center[0].shape: {center[0].shape}, device: {center[0].device}")
+                    b_unit.refresh()
 
-            b_unit.update(1)
+            if i % 10000 == 0:
+                b_unit.update(1)
 
         centers.append(join_center)
-
+        b_unit.n = n
+        b_unit.refresh()
         b_unit.close()
 
     centers_cpu = [tensor.cpu() for tensor in centers]
