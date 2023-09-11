@@ -41,6 +41,9 @@ This is a case of keyframe extraction by our proposed method. Below are examples
 <div align=center>
 <img src="https://github.com/ttharden/Keyframe-Extraction-for-video-summarization/blob/main/images/CASE3.png" > 
 </div>
+In the <b>GMC</b> method, keyframes are extracted by local characterisation, point-of-interest matching and graphical modularity.In the <b>VSUMM </b> method, clustering is done by pre-sampling first. In the <b>INCEPTION</b> method,the eigenvector is provided by a 2048-bit potential vector of InceptionV3 trained on ImageNet.In the <b>UID</b> method，the metric is the 2-Wasserstein distance computed between univariate Gaussian models.In the <b>SHOT</b> method, frames with maximum coefficient of variation are selected as key frames using in-camera, and the maximum coefficient of variation value is calculated by the Sobel gradient function.
+
+
 
 # Use it 
 _Step 1:_ Run TransNetV2 to get the result of shot segmentation
