@@ -9,6 +9,9 @@ The file for this project consists of the following：
 <img src="https://github.com/ttharden/Keyframe-Extraction-for-video-summarization/blob/main/images/file_2.png" > 
 </div>
 
+The [extraction folder](/src/extraction) contains our code for extracting keyframes, and the [scripts  folder](/src/scripts) folder contains the script files for saving keyframes and evaluating the extraction performance.
+
+
 # Method
 ## Shot segmentations
 We use the large model TransNetV2 for segmentation. Code from https://github.com/soCzech/TransNetV2. By this step, we will get the shot segmentation result of the video and the result will be saved locally in txt form. The front indicates the start frame of the shot and the back indicates the end frame of the shot.
