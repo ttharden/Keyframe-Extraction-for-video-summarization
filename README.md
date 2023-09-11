@@ -42,7 +42,7 @@ This is a case of keyframe extraction by our proposed method. Below are examples
 <img src="https://github.com/ttharden/Keyframe-Extraction-for-video-summarization/blob/main/images/CASE3.png" > 
 </div>
 
-# Use it in your video
+# Use it on your video
 _Step 1:_
 _Step 2:_
 _Step 3:_
