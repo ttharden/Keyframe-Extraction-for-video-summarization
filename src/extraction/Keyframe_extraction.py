@@ -38,7 +38,7 @@ def scen_keyframe_extraction(scenes_path, features_path, video_path, save_path, 
         # final_index.sort()
         # print("clustering：" + str(keyframe_index))
         # print(start, end)
-        final_index = redundancy(video_path, final_index, 0.8)
+        final_index = redundancy(video_path, final_index, 0.94)
         # print(final_index)
         keyframe_index += final_index
     keyframe_index.sort()
