@@ -42,6 +42,12 @@ This is a case of keyframe extraction by our proposed method. Below are examples
 <img src="https://github.com/ttharden/Keyframe-Extraction-for-video-summarization/blob/main/images/CASE3.png" > 
 </div>
 
+# USE IT ON YOUR VIDEO
+_Step 1:_
+_Step 2:_
+_Step 3:_
+_Step 4:_
+
 # Reference
 Tomas Soucek and Jakub Lokoc, “Transnet V2: an effective deep network architecture for fast shot transition detection,” arXiv:2008.04838, pp. 1–4, 2020.
 
