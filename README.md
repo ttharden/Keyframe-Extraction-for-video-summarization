@@ -4,6 +4,11 @@ In this project we use keyframe extraction  for video summarization.we present a
 
 First, The large model TransNetV2 was utilized to conduct shot segmentations, and the large model CLIP was employed to extract semantic features for each frame within each shot. Second, an adaptive clustering method is devised to automatically determine the optimal clusters, based on which we performed candidate keyframe selection and redundancy elimination shot by shot. Finally, a keyframe set was obtained by concatenating keyframes of all shots in chronological order.
 
+The file for this project consists of the following：
+<div align=center>
+<img src="https://github.com/ttharden/Keyframe-Extraction-for-video-summarization/blob/main/images/file_2.png" > 
+</div>
+
 # Method
 ## Shot segmentations
 We use the large model TransNetV2 for segmentation. Code from https://github.com/soCzech/TransNetV2. By this step, we will get the shot segmentation result of the video and the result will be saved locally in txt form. The front indicates the start frame of the shot and the back indicates the end frame of the shot.
