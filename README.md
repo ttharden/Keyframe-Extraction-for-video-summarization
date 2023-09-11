@@ -42,17 +42,17 @@ This is a case of keyframe extraction by our proposed method. Below are examples
 <img src="https://github.com/ttharden/Keyframe-Extraction-for-video-summarization/blob/main/images/CASE3.png" > 
 </div>
 
-# Use it on your video
-_Step 1:_
+# Use it 
+_Step 1:_ Run TransNetV2 to get the result of shot segmentation
 
 
-_Step 2:_
+_Step 2:_ Run CLIP to get the features of the video frame
 
 
-_Step 3:_
+_Step 3:_ Run Keyframe_extraction.py to get the keyframe sequence
 
 
-_Step 4:_
+_Step 4:_ Run save_keyframe.py to save the keyframes and Evaluation.py for proper evaluation
 
 
 
