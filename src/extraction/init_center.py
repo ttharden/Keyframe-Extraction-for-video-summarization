@@ -1,53 +1,57 @@
+import torch
+from tqdm import tqdm
 import numpy as np
 
-from tqdm import tqdm  # Import the tqdm function or class
 
+def kmeans_init(features_data):
+    print("In the process of initializing the center")
 
-def kmeans_init(data):
-    print("In the process of initialising the center")
+    data = torch.tensor(features_data, device='cuda')
+
     n = len(data)
-    # calculate sqrt(n)
-    sqrt_n = int(np.sqrt(n))
+    sqrt_n = int(n ** 0.5)
     centers = []
-    label = []
 
-    # pick init_center
     while len(centers) < sqrt_n:
-
         sse_min = float('inf')
-        for i in tqdm(range(n)):
+        b_unit = tqdm(enumerate(range(n)), total=n)
+
+        for i in range(n):
             center = centers.copy()
-            if np.any(data[i] != centers):
+            if len(center) < 1 or not torch.any(torch.all(data[i] == torch.stack(center), dim=1)):
                 center.append(data[i])
-                center = np.array(center)
-                # print(center)
+                center = torch.stack(center)
                 sse = 0.0
 
-                # Cluster operation
-                cluster_labels = np.zeros(len(data)).astype(int)
-                for k in range(len(data)):
-                    distances = [np.sqrt(np.sum((data[k] - cen) ** 2)) for cen in center]
-                    nearest_cluster = np.argmin(distances)
-                    cluster_labels[k] = nearest_cluster
+                cluster_labels = torch.argmin(torch.cdist(data, center), dim=1)
 
-                # Based on the results of the cluster operation,calculate sse
                 for j in range(len(center)):
-                    # Get the data points of the jth cluster
-                    cluster_points = []
-                    for l in range(len(cluster_labels)):
-                        if cluster_labels[l] == j:
-                            cluster_points.append(data[l])
-                    singe_sse = 0.0
-                    for point in cluster_points:
-                        squared_errors = np.linalg.norm(point - center[j])
-                        singe_sse += squared_errors
-                    sse += singe_sse
+                    cluster_points = data[cluster_labels == j]
+                    single_sse = torch.sum(torch.norm(cluster_points - center[j], dim=1))
+                    sse += single_sse.item()
 
                 if sse < sse_min:
                     sse_min = sse
                     join_center = data[i]
-                    label = cluster_labels.copy()
+                    label = cluster_labels.clone()
+
+                b_unit.set_description(f"kmeans_init {sqrt_n}: {len(centers)}, {len(data)} - sse_min: {sse_min}, "
+                                       f" sse: {sse} - center[0].shape: {center[0].shape}, device: {center[0].device}")
+                b_unit.refresh()
+
+            b_unit.update(1)
 
         centers.append(join_center)
 
-    return np.array(label), np.array(centers)
+        b_unit.close()
+
+    centers_cpu = [tensor.cpu() for tensor in centers]
+    centers_np = [tensor.numpy() for tensor in centers_cpu]
+    del centers
+    del centers_cpu
+
+    label_cpu = [tensor.cpu() for tensor in label]
+    label_np = [tensor.numpy() for tensor in label_cpu]
+    del label
+    del label_cpu
+    return np.array(label_np), np.array(centers_np)
