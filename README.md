@@ -45,11 +45,15 @@ This is a case of keyframe extraction by our proposed method. Below are examples
 # Use it on your video
 _Step 1:_
 
+
 _Step 2:_
+
 
 _Step 3:_
 
+
 _Step 4:_
+
 
 
 # Reference
